@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Polfy's wallet</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header>
+            <h1 id="title">Polfy's wallet</h1>
+            <p id="description">Thank you in advance for agreeing to fill my wallet</p>
+        </header>
+        <div class="wrap">
+            <main>
+                <form id="survey-form" action="#" method="post">
+                    <div class="form-section">
+                        <label for="name" id="name-label">Name</label>
+                        <input type="text" name="name" id="name" placeholder="Enter your name" required />
+                    </div>
+
+                    <div class="form-section">
+                        <label for="email" id="email-label">Email</label>
+                        <input type="email" name="email" id="email" placeholder="Enter your Email" required />
+                    </div>
+
+                    <div class="form-section">
+                        <label for="number" id="number-label">Donation ($)</label>
+                        <input
+                            type="number"
+                            name="donation"
+                            id="number"
+                            min="1"
+                            max="99999"
+                            placeholder="Enter your donation ($)"
+                        />
+                    </div>
+
+                    <div class="form-section">
+                        <label for="continent" id="dropdown-label">Continent</label>
+                        <select name="continent" id="dropdown">
+                            <option value="North America" selected>North America</option>
+                            <option value="South America">South America</option>
+                            <option value="Europe">Europe</option>
+                            <option value="Africa">Africa</option>
+                            <option value="Asia">Asia</option>
+                            <option value="Austrialia">Austrialia</option>
+                        </select>
+                    </div>
+
+                    <div class="form-section">
+                        <label for="sexe" id="radio-label">Sexe :</label>
+                        <input type="radio" name="sexe" id="sexe-m" value="Male" checked />
+                        <label for="sexe-m">Male</label>
+                        <input type="radio" name="sexe" id="sexe-f" value="Female" />
+                        <label for="sexe-f">Female</label>
+                    </div>
+
+                    <div class="form-section">
+                        <label>Select right answers</label>
+                        <br />
+                        <input type="checkbox" name="calc-0" id="calc-0" value="selected" />
+                        <label for="calc-0">1 + 5 = 8</label>
+                        <br />
+                        <input type="checkbox" name="calc-1" id="calc-1" value="selected" />
+                        <label for="calc-1">3 * 4 = 12</label>
+                        <br />
+                        <input type="checkbox" name="calc-2" id="calc-2" value="selected" />
+                        <label for="calc-2">9 - 5 = 4</label>
+                        <br />
+                        <input type="checkbox" name="calc-3" id="calc-3" value="selected" />
+                        <label for="calc-3">1 + 1 = 11</label>
+                    </div>
+
+                    <div class="form-section">
+                        <textarea name="comment" id="comment" placeholder="Enter your comment..."></textarea>
+                    </div>
+
+                    <div class="form-section">
+                        <input type="submit" id="submit" value="Send" />
+                    </div>
+                </form>
+            </main>
+        </div>
+    </body>
+</html>

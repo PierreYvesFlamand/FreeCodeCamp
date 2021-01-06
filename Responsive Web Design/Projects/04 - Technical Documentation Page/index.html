@@ -1,0 +1,1463 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>GRID Documentation</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="body-content">
+            <nav id="navbar">
+                <div class="wrap">
+                    <div class="nav-content">
+                        <header>GRID Documentation</header>
+                        <div id="burger"><i class="fas fa-bars"></i></div>
+                    </div>
+                </div>
+                <ul id="menu">
+                    <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+                    <li><a class="nav-link" href="#Grid_Container">Grid Container</a></li>
+                    <li><a class="nav-link" href="#Explicit_Grid">Explicit Grid</a></li>
+                    <li><a class="nav-link" href="#Grid_Track_Sizes">Grid Track Sizes</a></li>
+                    <li><a class="nav-link" href="#Repeating_Grid_Tracks">Repeating Grid Tracks</a></li>
+                    <li><a class="nav-link" href="#Grid_Gaps">Grid Gaps</a></li>
+                    <li>
+                        <a class="nav-link" href="#Positioning_Items_by_Grid_Line_Numbers"
+                            >Positioning Items by Grid Line Numbers</a
+                        >
+                    </li>
+                    <li><a class="nav-link" href="#Spanning_Items">Spanning Items</a></li>
+                    <li>
+                        <a class="nav-link" href="#Naming_and_Positioning_Items_by_Grid_Areas"
+                            >Naming and Positioning Items by Grid Areas</a
+                        >
+                    </li>
+                    <li><a class="nav-link" href="#Implicit_Grid">Implicit Grid</a></li>
+                    <li><a class="nav-link" href="#Aligning_Grid_Items">Aligning Grid Items</a></li>
+                    <li><a class="nav-link" href="#Aligning_Grid_Tracks">Aligning Grid Tracks</a></li>
+                    <li><a class="nav-link" href="#Reference">Reference</a></li>
+                </ul>
+            </nav>
+            <main id="main-doc">
+                <div class="wrap">
+                    <section id="Introduction" class="main-section">
+                        <div class="main-section-header">
+                            <header>Introduction</header>
+                            <p>
+                                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout"
+                                    >CSS Grid</a
+                                >
+                                is a powerful tool that allows for two-dimensional layouts to be created on
+                                the web. This guide was created as a resource to help you better understand
+                                and learn Grid, and was organized in a way I thought made the most sense when
+                                learning it.
+                            </p>
+                        </div>
+                    </section>
+
+                    <!-- Grid Container -->
+                    <section id="Grid_Container" class="main-section">
+                        <div class="main-section-header">
+                            <header>Grid Container</header>
+                            <p>
+                                Create a grid container by setting the
+                                <code class="txt-highlight">display</code> property with a value of
+                                <code class="txt-highlight">grid</code> or
+                                <code class="txt-highlight">inline-grid</code>. All direct children of grid
+                                containers become grid items.
+                            </p>
+                        </div>
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">display: grid;</code>
+                                <p>
+                                    Grid items are placed in rows by default and span the full width of the
+                                    grid container.
+                                </p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="g_c_ex_1">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2</div>
+                                    <div class="grid-elem">3</div>
+                                </div>
+                            </aside>
+                        </div>
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">display: inline-grid;</code>
+                            </section>
+                            <aside class="exemple">
+                                <div id="g_c_ex_2">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2nd is very big</div>
+                                    <div class="grid-elem">3</div>
+                                </div>
+                            </aside>
+                        </div>
+                    </section>
+
+                    <!-- Explicit Grid -->
+                    <section id="Explicit_Grid" class="main-section">
+                        <div class="main-section-header">
+                            <header>Explicit Grid</header>
+                            <p>
+                                Explicitly set a grid by creating columns and rows with the
+                                <code class="txt-highlight">grid-template-columns></code> and
+                                <code class="txt-highlight">grid-template-rows</code> properties.
+                            </p>
+                        </div>
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">grid-template-rows: 50px 100px;</code>
+                                <p>
+                                    A row track is created for each value specified for
+                                    <code class="txt-highlight">grid-template-rows</code>. Track size values
+                                    can be any non-negative, length value (<code class="txt-highlight"
+                                        >px</code
+                                    >, <code class="txt-highlight">%</code>,
+                                    <code class="txt-highlight">em</code>, etc.)
+                                </p>
+                                <p>
+                                    Items 1 and 2 have fixed heights of
+                                    <code class="txt-highlight">50px</code> and
+                                    <code class="txt-highlight">100px</code>.
+                                </p>
+                                <p>
+                                    Because only 2 row tracks were defined, heights of items 3 and 4 are
+                                    defined by the contents of each.
+                                </p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="e_g_ex_1">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2</div>
+                                    <div class="grid-elem">3</div>
+                                    <div class="grid-elem">4</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">grid-template-columns: 80px 40px 100px;</code>
+                                <p>
+                                    Like rows, a column track is created for each value specified for
+                                    <code class="txt-highlight">grid-template-columns</code>.
+                                </p>
+                                <p>
+                                    Items 4, 5 and 6 were placed on a new row track because only 3 column
+                                    track sizes were defined; and because they were placed in column tracks 1,
+                                    2 and 3, their column sizes are equal to items 1, 2 and 3.
+                                </p>
+                                <p>
+                                    Grid items 1, 2 and 3 have fixed widths of
+                                    <code class="txt-highlight">90px</code>,
+                                    <code class="txt-highlight">50px</code> and
+                                    <code class="txt-highlight">120px</code> respectively.
+                                </p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="e_g_ex_2">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2</div>
+                                    <div class="grid-elem">3</div>
+                                    <div class="grid-elem">4</div>
+                                    <div class="grid-elem">5</div>
+                                    <div class="grid-elem">6</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">grid-template-columns: 1fr 1fr 2fr;</code>
+                                <p>
+                                    The <code class="txt-highlight">fr</code> unit helps create flexible grid
+                                    tracks. It represents a fraction of the available space in the grid
+                                    container (works like Flexbox’s unitless values).
+                                </p>
+                                <p>
+                                    In this example, items 1 and 2 take up the first two (of four) sections
+                                    while item 3 takes up the last two
+                                </p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="e_g_ex_3">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2</div>
+                                    <div class="grid-elem">3</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">grid-template-columns: 3rem 25% 1fr 2fr;</code>
+                                <p>
+                                    <code class="txt-highlight">fr</code> is calculated based on the remaining
+                                    space when combined with other length values.
+                                </p>
+                                <p>
+                                    In this example, <code class="txt-highlight">3rem</code> and
+                                    <code class="txt-highlight">25%</code> would be subtracted from the
+                                    available space before the size of
+                                    <code class="txt-highlight">fr</code> is calculated: <br />
+                                    <code class="txt-highlight"
+                                        >1fr = ((width of grid) - (3rem) - (25% of width of grid)) / 3</code
+                                    >
+                                </p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="e_g_ex_4">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2</div>
+                                    <div class="grid-elem">3</div>
+                                    <div class="grid-elem">4</div>
+                                </div>
+                            </aside>
+                        </div>
+                    </section>
+
+                    <!-- Grid Track Sizes -->
+                    <section id="Grid_Track_Sizes" class="main-section">
+                        <div class="main-section-header">
+                            <header>Grid Track Sizes</header>
+                            <p>
+                                Tracks sizes can be defined to have a minimum and/or maximum size with the
+                                <code class="txt-highlight">minmax()</code> function.
+                            </p>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight"
+                                    >grid-template-rows:&nbsp;&nbsp;&nbsp;&nbsp;minmax(100px, auto);</code
+                                >
+                                <code class="code-highlight"
+                                    >grid-template-columns: minmax(auto, 50%) 1fr 3em;</code
+                                >
+                                <p>
+                                    The <code class="txt-highlight">minmax()</code> function accepts 2
+                                    arguments: the first is the minimum size of the track and the second the
+                                    maximum size. Alongside length values, the values can also be
+                                    <code class="txt-highlight">auto</code>, which allows the track to
+                                    grow/stretch based on the size of the content.
+                                </p>
+                                <p>
+                                    In this example, the first row track is set to have a minimum height of
+                                    <code class="txt-highlight">100px</code>, but its maximum size of
+                                    <code class="txt-highlight">auto</code> will allow the row track to grow
+                                    it the content is taller than <code class="txt-highlight">100px</code>.
+                                </p>
+                                <p>
+                                    The first column track has a minimum size of
+                                    <code class="txt-highlight">auto</code>, but its maximum size of
+                                    <code class="txt-highlight">50%</code> will prevent it from getting no
+                                    wider than <code class="txt-highlight">50%</code> of the grid container
+                                    width.
+                                </p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="g_t_s_ex_1">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2</div>
+                                    <div class="grid-elem">3</div>
+                                    <div class="grid-elem">
+                                        4. This item has more content than the others and is intentionally,
+                                        unnecessarily, superfluously, uselessly, and annoyingly verbose for
+                                        the sake of example. This item has more content than the others and is
+                                        intentionally, unnecessarily, superfluously, uselessly, and annoyingly
+                                        verbose for the sake of example.
+                                    </div>
+                                    <div class="grid-elem">5</div>
+                                    <div class="grid-elem">6</div>
+                                </div>
+                            </aside>
+                        </div>
+                    </section>
+
+                    <!-- Repeating Grid Track -->
+                    <section id="Repeating_Grid_Tracks" class="main-section">
+                        <div class="main-section-header">
+                            <header>Repeating Grid Tracks</header>
+                            <p>
+                                Define repeating grid tracks using the
+                                <code class="txt-highlight">repeat()</code> notation. This is useful for grids
+                                with items with equal sizes or many items.
+                            </p>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight"
+                                    >grid-template-rows:&nbsp;&nbsp;&nbsp;&nbsp;repeat(4, 100px);</code
+                                >
+                                <code class="code-highlight">grid-template-columns: repeat(3, 1fr);</code>
+                                <p>
+                                    The <code class="txt-highlight">repeat()</code> notation accepts 2
+                                    arguments: the first represents the number of times the defined tracks
+                                    should repeat, and the second is the track definition.
+                                </p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="r_g_t_ex_1">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2</div>
+                                    <div class="grid-elem">3</div>
+                                    <div class="grid-elem">4</div>
+                                    <div class="grid-elem">5</div>
+                                    <div class="grid-elem">6</div>
+                                    <div class="grid-elem">7</div>
+                                    <div class="grid-elem">8</div>
+                                    <div class="grid-elem">9</div>
+                                    <div class="grid-elem">10</div>
+                                    <div class="grid-elem">11</div>
+                                    <div class="grid-elem">12</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight"
+                                    >grid-template-columns: 30px repeat(3, 1fr) 30px;</code
+                                >
+                                <p>
+                                    <code class="txt-highlight">repeat()</code> can also be used within track
+                                    listings.
+                                </p>
+                                <p>
+                                    In this example, the first and last column tracks have widths of
+                                    <code class="txt-highlight">30px</code>, and the 3 column tracks in
+                                    between, created by <code class="txt-highlight">repeat()</code>, have
+                                    widths of <code class="txt-highlight">1fr</code> each.
+                                </p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="r_g_t_ex_2">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2</div>
+                                    <div class="grid-elem">3</div>
+                                    <div class="grid-elem">4</div>
+                                    <div class="grid-elem">5</div>
+                                    <div class="grid-elem">6</div>
+                                    <div class="grid-elem">7</div>
+                                    <div class="grid-elem">8</div>
+                                    <div class="grid-elem">9</div>
+                                    <div class="grid-elem">10</div>
+                                </div>
+                            </aside>
+                        </div>
+                    </section>
+
+                    <!-- Grid Gaps -->
+                    <section id="Grid_Gaps" class="main-section">
+                        <div class="main-section-header">
+                            <header>Grid Gaps</header>
+                            <p>
+                                The <code class="txt-highlight">grid-column-gap</code> and
+                                <code class="txt-highlight">grid-row-gap</code> properties create gutters
+                                between columns and rows.
+                            </p>
+                            <p>
+                                Grid gaps are only created in between columns and rows, and not along the edge
+                                of the grid container.
+                            </p>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">grid-row-gap: &nbsp;&nbsp;&nbsp;20px;</code>
+                                <code class="code-highlight">grid-column-gap: 4rem;</code>
+                                <p>
+                                    Gap size values can be any non-negative, length value (<code
+                                        class="txt-highlight"
+                                        >px</code
+                                    >, <code class="txt-highlight">%</code>,
+                                    <code class="txt-highlight">em</code>, etc.)
+                                </p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="g_g_ex_1">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2</div>
+                                    <div class="grid-elem">3</div>
+                                    <div class="grid-elem">4</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">grid-gap: 80px 1rem;</code>
+                                <p>
+                                    <code class="txt-highlight">grid-gap</code> is shorthand for
+                                    <code class="txt-highlight">grid-row-gap</code> and
+                                    <code class="txt-highlight">grid-column-gap</code>.
+                                </p>
+                                <p>
+                                    If two values are specified, the first represents
+                                    <code class="txt-highlight">grid-row-gap</code> and the second
+                                    <code class="txt-highlight">grid-column-gap</code>.
+                                </p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="g_g_ex_2">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2</div>
+                                    <div class="grid-elem">3</div>
+                                    <div class="grid-elem">4</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">grid-gap: 2rem;</code>
+                                <p>One value sets equal row and column gaps.</p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="g_g_ex_3">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2</div>
+                                    <div class="grid-elem">3</div>
+                                    <div class="grid-elem">4</div>
+                                </div>
+                            </aside>
+                        </div>
+                    </section>
+
+                    <!-- Positioning Items by Grid Line Numbers -->
+                    <section id="Positioning_Items_by_Grid_Line_Numbers" class="main-section">
+                        <div class="main-section-header">
+                            <header>Positioning Items by Grid Line Numbers</header>
+                            <p>
+                                Grid lines are essentially lines that represent the start of, the end of, or
+                                between column and row tracks.
+                            </p>
+                            <p>
+                                Each line, starting from the start of the track and in the direction of the
+                                grid, is numbered incrementally starting from 1.
+                            </p>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">grid-row-start: &nbsp;&nbsp;&nbsp;2;</code>
+                                <code class="code-highlight"
+                                    >grid-row-end: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3;</code
+                                >
+                                <code class="code-highlight">grid-column-start: 2;</code>
+                                <code class="code-highlight">grid-column-end: &nbsp;&nbsp;3;</code>
+                                <p>
+                                    This 2-column by 3-row grid results in 3 column lines and 4 row lines.
+                                    Item 1 was repositioned by row and column line numbers.
+                                </p>
+                                <p>
+                                    If an item spans only one row or column,
+                                    <code class="txt-highlight">grid-row</code>/<code class="txt-highlight"
+                                        >column-end</code
+                                    >
+                                    is not necessary.
+                                </p>
+                            </section>
+                            <aside class="exemple">
+                                <img src="img/Positioning_Items_by_Grid_Line_Numbers_ex_1.PNG" />
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">grid-row: &nbsp;&nbsp;&nbsp;2;</code>
+                                <code class="code-highlight">grid-column: 3 / 4;</code>
+                                <p>
+                                    <code class="txt-highlight">grid-row</code> is shorthand for
+                                    <code class="txt-highlight">grid-row-start</code> and
+                                    <code class="txt-highlight">grid-row-end</code>.
+                                </p>
+                                <p>
+                                    <code class="txt-highlight">grid-column</code> is shorthand for
+                                    <code class="txt-highlight">grid-column-start </code>and
+                                    <code class="txt-highlight">grid-column-end</code>.
+                                </p>
+                                <p>
+                                    If one value is provided, it specifies
+                                    <code class="txt-highlight">grid-row</code>/<code class="txt-highlight"
+                                        >column-start</code
+                                    >.
+                                </p>
+                                <p>
+                                    If two values are specified, the first value corresponds to
+                                    <code class="txt-highlight">grid-row</code>/<code class="txt-highlight"
+                                        >column-start</code
+                                    >
+                                    and the second <code class="txt-highlight">grid-row</code>/<code
+                                        class="txt-highlight"
+                                        >column-end</code
+                                    >, and must be separated by a forward slash /.
+                                </p>
+                            </section>
+                            <aside class="exemple">
+                                <img src="img/Positioning_Items_by_Grid_Line_Numbers_ex_2.PNG" />
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">grid-area: 2 / 2 / 3 / 3;</code>
+                                <p>
+                                    <code class="txt-highlight">grid-area</code> is shorthand for
+                                    <code class="txt-highlight">grid-row-start</code>,
+                                    <code class="txt-highlight">grid-column-start</code>,
+                                    <code class="txt-highlight">grid-row-end</code> and
+                                    <code class="txt-highlight">grid-column-end</code>.
+                                </p>
+                                <p>
+                                    If four values are specified, the first corresponds to
+                                    <code class="txt-highlight">grid-row-start</code>, the second
+                                    <code class="txt-highlight">grid-column-start</code>, the third
+                                    <code class="txt-highlight">grid-row-end</code> and the fourth
+                                    <code class="txt-highlight">grid-column-end</code>.
+                                </p>
+                            </section>
+                            <aside class="exemple">
+                                <img src="img/Positioning_Items_by_Grid_Line_Numbers_ex_3.PNG" />
+                            </aside>
+                        </div>
+                    </section>
+
+                    <!-- Spanning Items -->
+                    <section id="Spanning_Items" class="main-section">
+                        <div class="main-section-header">
+                            <header>Spanning Items</header>
+                            <p>
+                                Grid items span only one column and row track by default, but can span
+                                multiple row and/or column tracks using the same properties to
+                                <a href="#Positioning_Items_by_Grid_Line_Numbers">position them</a>.
+                            </p>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">grid-column-start: 1;</code>
+                                <code class="code-highlight">grid-column-end: &nbsp;&nbsp;4;</code>
+                                <p>
+                                    Set a grid item to span more than one column track by setting
+                                    <code class="txt-highlight">grid-column-end</code> to a column line number
+                                    that is more than one column away from
+                                    <code class="txt-highlight">grid-column-start.</code>
+                                </p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="s_i_ex_1">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2</div>
+                                    <div class="grid-elem">3</div>
+                                    <div class="grid-elem">4</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">grid-row-start: 1;</code>
+                                <code class="code-highlight">grid-row-end: &nbsp;&nbsp;4;</code>
+                                <p>
+                                    Grid items can also span across multiple row tracks by setting
+                                    <code class="txt-highlight">grid-row-end</code> to more than one row track
+                                    away.
+                                </p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="s_i_ex_2">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2</div>
+                                    <div class="grid-elem">3</div>
+                                    <div class="grid-elem">4</div>
+                                    <div class="grid-elem">5</div>
+                                    <div class="grid-elem">6</div>
+                                    <div class="grid-elem">7</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">grid-row: &nbsp;&nbsp;&nbsp;2 / 5;</code>
+                                <code class="code-highlight">grid-column: 2 / 4;</code>
+                                <p>
+                                    Shorthand properties <code class="txt-highlight">grid-row</code> and
+                                    <code class="txt-highlight">grid-column</code> can also be used to
+                                    position and span grid items more than one row or column.
+                                </p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="s_i_ex_3">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2</div>
+                                    <div class="grid-elem">3</div>
+                                    <div class="grid-elem">4</div>
+                                    <div class="grid-elem">5</div>
+                                    <div class="grid-elem">6</div>
+                                    <div class="grid-elem">7</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">grid-row: &nbsp;&nbsp;&nbsp;2 / span 3;</code>
+                                <code class="code-highlight">grid-column: span 2;</code>
+                                <p>
+                                    The keyword <code class="txt-highlight">span</code>, followed by the # of
+                                    columns or rows to span, can also be used.
+                                </p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="s_i_ex_4">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2</div>
+                                    <div class="grid-elem">3</div>
+                                    <div class="grid-elem">4</div>
+                                    <div class="grid-elem">5</div>
+                                    <div class="grid-elem">6</div>
+                                    <div class="grid-elem">7</div>
+                                </div>
+                            </aside>
+                        </div>
+                    </section>
+
+                    <!-- Naming and Positioning Items by Grid Areas -->
+                    <section id="Naming_and_Positioning_Items_by_Grid_Areas" class="main-section">
+                        <div class="main-section-header">
+                            <header>Naming and Positioning Items by Grid Areas</header>
+                            <p>
+                                Like grid line names, grid areas can also be named with the
+                                <code class="txt-highlight">grid-template-areas</code> property. Names can
+                                then be referenced to position grid items.
+                            </p>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">grid-template-areas:</code>
+                                <code class="code-highlight">&nbsp;&nbsp;&nbsp;&nbsp;"header header"</code>
+                                <code class="code-highlight">&nbsp;&nbsp;&nbsp;&nbsp;"content sidebar"</code>
+                                <code class="code-highlight">&nbsp;&nbsp;&nbsp;&nbsp;"footer footer";</code>
+                                <code class="code-highlight">grid-template-rows: 120px 1fr 90px;</code>
+                                <code class="code-highlight">grid-template-columns: 1fr 150px;</code>
+                                <p>
+                                    Sets of names should be surrounded in single or double quotes, and each
+                                    name separated by a whitespace.
+                                </p>
+                                <p>Each set of names defines a row, and each name defines a column.</p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="n_p_i_g_a_ex_1">
+                                    <div class="grid-elem header">header</div>
+                                    <div class="grid-elem main">main</div>
+                                    <div class="grid-elem aside">aside</div>
+                                    <div class="grid-elem footer">footer</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">.header {</code>
+                                <code class="code-highlight">&nbsp;&nbsp;&nbsp;&nbsp;grid-area: header;</code>
+                                <code class="code-highlight">}</code>
+                                <p>
+                                    You can use de property <code class="txt-highlight">grid-area</code> to
+                                    select the area your element should place in
+                                </p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="n_p_i_g_a_ex_2">
+                                    <div class="grid-elem header">header</div>
+                                    <div class="grid-elem main">main</div>
+                                    <div class="grid-elem aside">aside</div>
+                                    <div class="grid-elem footer">footer</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">.header {</code>
+                                <code class="code-highlight">&nbsp;&nbsp;&nbsp;&nbsp;grid-area: header;</code>
+                                <code class="code-highlight">}</code>
+                                <code class="code-highlight">.main {</code>
+                                <code class="code-highlight">&nbsp;&nbsp;&nbsp;&nbsp;grid-area: main;</code>
+                                <code class="code-highlight">}</code>
+                                <code class="code-highlight">.aside {</code>
+                                <code class="code-highlight">&nbsp;&nbsp;&nbsp;&nbsp;grid-area: aside;</code>
+                                <code class="code-highlight">}</code>
+                                <code class="code-highlight">.footer {</code>
+                                <code class="code-highlight">&nbsp;&nbsp;&nbsp;&nbsp;grid-area: footer;</code>
+                                <code class="code-highlight">}</code>
+                            </section>
+                            <aside class="exemple">
+                                <div id="n_p_i_g_a_ex_3">
+                                    <div class="grid-elem header">header</div>
+                                    <div class="grid-elem main">main</div>
+                                    <div class="grid-elem aside">aside</div>
+                                    <div class="grid-elem footer">footer</div>
+                                </div>
+                            </aside>
+                        </div>
+                    </section>
+
+                    <!-- Implicit Grid -->
+                    <section id="Implicit_Grid" class="main-section">
+                        <div class="main-section-header">
+                            <header>Implicit Grid</header>
+                            <p>
+                                An implicit grid is created when a grid needs to position items outside of the
+                                explicit grid because there isn’t enough space for items in the explicitly
+                                defined tracks or you decide to position something outside of the explicit
+                                grid. Those items are then auto-placed in the implicit grid.
+                            </p>
+                            <p>
+                                The implicit grid can be defined using the
+                                <code class="txt-highlight">grid-auto-rows</code>,
+                                <code class="txt-highlight">grid-auto-columns</code>, and
+                                <code class="txt-highlight">grid-auto-flow</code> properties.
+                            </p>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight"
+                                    >grid-template-rows: &nbsp;&nbsp;&nbsp;70px;</code
+                                >
+                                <code class="code-highlight">grid-template-columns: repeat(2, 1fr); </code>
+                                <code class="code-highlight"
+                                    >grid-auto-rows: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;140px;
+                                </code>
+                                <p>
+                                    In this example we’ve only defined one row track, therefore grid items 1
+                                    and 2 are <code class="txt-highlight">70px</code> tall.
+                                </p>
+                                <p>
+                                    A second row track was auto-created to make room for items 3 and 4.
+                                    <code class="txt-highlight">grid-auto-rows</code> defines the row track
+                                    sizes in the implicit grid, which is reflected by the the
+                                    <code class="txt-highlight">140px</code> heights of items 3 and 4.
+                                </p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="i_g_ex_1">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2</div>
+                                    <div class="grid-elem target">3</div>
+                                    <div class="grid-elem target">4</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">grid-auto-flow: row </code>
+                                <p>
+                                    The default flow (direction) of a grid is
+                                    <code class="txt-highlight">row</code>.
+                                </p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="i_g_ex_2">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2</div>
+                                    <div class="grid-elem">3</div>
+                                    <div class="grid-elem">4</div>
+                                    <div class="grid-elem">5</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">grid-auto-flow: column </code>
+                                <p>
+                                    A grid’s flow can be changed to <code class="txt-highlight">column</code>.
+                                </p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="i_g_ex_3">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2</div>
+                                    <div class="grid-elem">3</div>
+                                    <div class="grid-elem">4</div>
+                                    <div class="grid-elem">5</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">grid-template-columns: 30px 60px; </code>
+                                <code class="code-highlight"
+                                    >grid-auto-flow: &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;column;
+                                </code>
+                                <code class="code-highlight"
+                                    >grid-auto-columns: &nbsp;&nbsp;&nbsp;&nbsp;1fr;
+                                </code>
+                                <p>
+                                    In this example, we’ve only defined the sizes of the first two column
+                                    tracks—item 1 is <code class="txt-highlight">30px</code> wide and item 2,
+                                    <code class="txt-highlight">60px</code>.
+                                </p>
+                                <p>
+                                    Column tracks are auto-created in the implicit grid to make room for items
+                                    3, 4 and 5; and track sizes are defined by
+                                    <code class="txt-highlight">grid-auto-columns</code>.
+                                </p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="i_g_ex_4">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2</div>
+                                    <div class="grid-elem target">3</div>
+                                    <div class="grid-elem target">4</div>
+                                    <div class="grid-elem target">5</div>
+                                </div>
+                            </aside>
+                        </div>
+                    </section>
+
+                    <!-- Aligning Grid Items -->
+                    <section id="Aligning_Grid_Items" class="main-section">
+                        <div class="main-section-header">
+                            <header>Aligning Grid Items</header>
+                            <p>
+                                CSS’s
+                                <a
+                                    href="https://drafts.csswg.org/css-align/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    Box
+                                    Alignment
+                                    Module
+                                ></a>
+                                complements CSS Grid to allow items to be aligned along the row of column
+                                axis.
+                            </p>
+                            <p>
+                                <code class="txt-highlight">justify-items</code> and
+                                <code class="txt-highlight">justify-self</code> align items along the row
+                                axis, and <code class="txt-highlight">align-items</code> and
+                                <code class="txt-highlight">align-self</code> align items along the column
+                                axis.
+                            </p>
+                            <p>
+                                <code class="txt-highlight">justify-items</code> and
+                                <code class="txt-highlight">align-items</code> are applied to the grid
+                                container and support the following values:
+                            </p>
+                            <ul>
+                                <li><code class="txt-highlight">auto</code></li>
+                                <li><code class="txt-highlight">normal</code></li>
+                                <li><code class="txt-highlight">start</code></li>
+                                <li><code class="txt-highlight">end</code></li>
+                                <li><code class="txt-highlight">center</code></li>
+                                <li><code class="txt-highlight">stretch</code></li>
+                                <li><code class="txt-highlight">baseline</code></li>
+                                <li><code class="txt-highlight">first baseline</code></li>
+                                <li><code class="txt-highlight">last baseline</code></li>
+                            </ul>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">justify-items: start;</code>
+                                <p>
+                                    Items are positioned at the start of the row axis (row line number
+                                    <code class="txt-highlight">1</code>).
+                                </p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="a_g_i_ex_1">
+                                    <div class="grid-elem">1</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">justify-items: center;</code>
+                                <p>Items are positioned at the center of the row axis.</p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="a_g_i_ex_2">
+                                    <div class="grid-elem">1</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">justify-items: end;</code>
+                                <p>Items are positioned at the end of the row axis.</p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="a_g_i_ex_3">
+                                    <div class="grid-elem">1</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">justify-items: stretch;</code>
+                                <p>
+                                    Items are stretched across the entire row axis.
+                                    <code class="txt-highlight">stretch</code> is the default value.
+                                </p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="a_g_i_ex_4">
+                                    <div class="grid-elem">1</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">align-items: start;</code>
+                                <p>
+                                    Items are positioned at the start of the column axis (column line
+                                    <code class="txt-highlight">1</code>).
+                                </p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="a_g_i_ex_5">
+                                    <div class="grid-elem">1</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">align-items: center;</code>
+                                <p>Items are positioned at the center of the column axis.</p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="a_g_i_ex_6">
+                                    <div class="grid-elem">1</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">align-items: end;</code>
+                                <p>Items are positioned at the end of the column axis.</p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="a_g_i_ex_7">
+                                    <div class="grid-elem">1</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">align-items: stretch;</code>
+                                <p>Items are stretched across the entire column axis.</p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="a_g_i_ex_8">
+                                    <div class="grid-elem">1</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">justify-items: center;</code>
+                                <code class="code-highlight">align-items: &nbsp;&nbsp;center ;</code>
+                                <p>Items are positioned at the center of the row and column axes.</p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="a_g_i_ex_9">
+                                    <div class="grid-elem">1</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="main-section-header">
+                            <p>
+                                Individual items can be self-aligned with the
+                                <code class="txt-highlight">align-self</code> and
+                                <code class="txt-highlight">justify-self</code> properties. These properties
+                                support the same values as
+                                <code class="txt-highlight">justify-items</code> and
+                                <code class="txt-highlight">align-items</code>
+                            </p>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">.item-1 { justify-self: start; } </code>
+                                <code class="code-highlight">.item-2 { justify-self: center; } </code>
+                                <code class="code-highlight">.item-3 { justify-self: end; } </code>
+                                <p>
+                                    <code class="txt-highlight">justify-self</code> aligns individual items
+                                    along the row axis.
+                                </p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="a_g_i_ex_10">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2</div>
+                                    <div class="grid-elem">3</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">.item-1 { align-self: start; } </code>
+                                <code class="code-highlight">.item-2 { align-self: center; } </code>
+                                <code class="code-highlight">.item-3 { align-self: end; } </code>
+                                <p>
+                                    <code class="txt-highlight">align-self</code> aligns items along the
+                                    column axis.
+                                </p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="a_g_i_ex_11">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2</div>
+                                    <div class="grid-elem">3</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">.item-1 {</code>
+                                <code class="code-highlight"
+                                    >&nbsp;&nbsp;&nbsp;&nbsp;justify-self: center</code
+                                >
+                                <code class="code-highlight"
+                                    >&nbsp;&nbsp;&nbsp;&nbsp;align-self: &nbsp;&nbsp;center</code
+                                >
+                                <code class="code-highlight">}</code>
+                                <p>Item 1 is positioned at the center of the row and column axes.</p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="a_g_i_ex_12">
+                                    <div class="grid-elem">1</div>
+                                </div>
+                            </aside>
+                        </div>
+                    </section>
+
+                    <!-- Aligning Grid Tracks -->
+                    <section id="Aligning_Grid_Tracks" class="main-section">
+                        <div class="main-section-header">
+                            <header>Aligning Grid Tracks</header>
+                            <p>
+                                Grid tracks can be aligned relative to the grid container along the row and
+                                column axes.
+                            </p>
+                            <p>
+                                <code class="txt-highlight">align-content</code> aligns tracks along the row
+                                axis and <code class="txt-highlight">justify-content</code> along the column
+                                axis. They support the following properties:
+                            </p>
+                            <ul>
+                                <li><code class="txt-highlight">normal</code></li>
+                                <li><code class="txt-highlight">start</code></li>
+                                <li><code class="txt-highlight">end</code></li>
+                                <li><code class="txt-highlight">center</code></li>
+                                <li><code class="txt-highlight">stretch</code></li>
+                                <li><code class="txt-highlight">space-around</code></li>
+                                <li><code class="txt-highlight">space-between</code></li>
+                                <li><code class="txt-highlight">space-evenly</code></li>
+                                <li><code class="txt-highlight">baseline</code></li>
+                                <li><code class="txt-highlight">first baseline</code></li>
+                                <li><code class="txt-highlight">last baseline</code></li>
+                            </ul>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">.grid {</code>
+                                <code class="code-highlight">&nbsp;&nbsp;&nbsp;&nbsp;width: 100%;</code>
+                                <code class="code-highlight">&nbsp;&nbsp;&nbsp;&nbsp;height: 300px;</code>
+                                <code class="code-highlight"
+                                    >&nbsp;&nbsp;&nbsp;&nbsp;grid-template-columns: repeat(4, 45px);</code
+                                >
+                                <code class="code-highlight"
+                                    >&nbsp;&nbsp;&nbsp;&nbsp;grid-template-rows: repeat(4, 45px);</code
+                                >
+                                <code class="code-highlight">&nbsp;&nbsp;&nbsp;&nbsp;grid-gap: 0.5rem;</code>
+                                <code class="code-highlight"
+                                    >&nbsp;&nbsp;&nbsp;&nbsp;justify-content: start;</code
+                                >
+                                <code class="code-highlight">}</code>
+                                <p>
+                                    <code class="txt-highlight">start</code> aligns column tracks along and at
+                                    the start of the row axis. It is the default value.
+                                </p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="a_g_t_ex_1">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2</div>
+                                    <div class="grid-elem">3</div>
+                                    <div class="grid-elem">4</div>
+                                    <div class="grid-elem">5</div>
+                                    <div class="grid-elem">6</div>
+                                    <div class="grid-elem">7</div>
+                                    <div class="grid-elem">8</div>
+                                    <div class="grid-elem">9</div>
+                                    <div class="grid-elem">10</div>
+                                    <div class="grid-elem">11</div>
+                                    <div class="grid-elem">12</div>
+                                    <div class="grid-elem">13</div>
+                                    <div class="grid-elem">14</div>
+                                    <div class="grid-elem">15</div>
+                                    <div class="grid-elem">16</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">justify-content: end; </code>
+                                <p>Columns are aligned at the end of the row axis.</p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="a_g_t_ex_2">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2</div>
+                                    <div class="grid-elem">3</div>
+                                    <div class="grid-elem">4</div>
+                                    <div class="grid-elem">5</div>
+                                    <div class="grid-elem">6</div>
+                                    <div class="grid-elem">7</div>
+                                    <div class="grid-elem">8</div>
+                                    <div class="grid-elem">9</div>
+                                    <div class="grid-elem">10</div>
+                                    <div class="grid-elem">11</div>
+                                    <div class="grid-elem">12</div>
+                                    <div class="grid-elem">13</div>
+                                    <div class="grid-elem">14</div>
+                                    <div class="grid-elem">15</div>
+                                    <div class="grid-elem">16</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">justify-content: center; </code>
+                                <p>Columns are aligned at the center of the row axis.</p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="a_g_t_ex_3">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2</div>
+                                    <div class="grid-elem">3</div>
+                                    <div class="grid-elem">4</div>
+                                    <div class="grid-elem">5</div>
+                                    <div class="grid-elem">6</div>
+                                    <div class="grid-elem">7</div>
+                                    <div class="grid-elem">8</div>
+                                    <div class="grid-elem">9</div>
+                                    <div class="grid-elem">10</div>
+                                    <div class="grid-elem">11</div>
+                                    <div class="grid-elem">12</div>
+                                    <div class="grid-elem">13</div>
+                                    <div class="grid-elem">14</div>
+                                    <div class="grid-elem">15</div>
+                                    <div class="grid-elem">16</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">justify-content: space-around; </code>
+                                <p>
+                                    The remaining space of the grid container is distributed and applied to
+                                    the start and end of each column track.
+                                </p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="a_g_t_ex_4">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2</div>
+                                    <div class="grid-elem">3</div>
+                                    <div class="grid-elem">4</div>
+                                    <div class="grid-elem">5</div>
+                                    <div class="grid-elem">6</div>
+                                    <div class="grid-elem">7</div>
+                                    <div class="grid-elem">8</div>
+                                    <div class="grid-elem">9</div>
+                                    <div class="grid-elem">10</div>
+                                    <div class="grid-elem">11</div>
+                                    <div class="grid-elem">12</div>
+                                    <div class="grid-elem">13</div>
+                                    <div class="grid-elem">14</div>
+                                    <div class="grid-elem">15</div>
+                                    <div class="grid-elem">16</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">justify-content: space-between; </code>
+                                <p>The remaining space is distributed between the column tracks.</p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="a_g_t_ex_5">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2</div>
+                                    <div class="grid-elem">3</div>
+                                    <div class="grid-elem">4</div>
+                                    <div class="grid-elem">5</div>
+                                    <div class="grid-elem">6</div>
+                                    <div class="grid-elem">7</div>
+                                    <div class="grid-elem">8</div>
+                                    <div class="grid-elem">9</div>
+                                    <div class="grid-elem">10</div>
+                                    <div class="grid-elem">11</div>
+                                    <div class="grid-elem">12</div>
+                                    <div class="grid-elem">13</div>
+                                    <div class="grid-elem">14</div>
+                                    <div class="grid-elem">15</div>
+                                    <div class="grid-elem">16</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">justify-content: space-evenly; </code>
+                                <p>
+                                    The remaining space is distributed where the space between the columns are
+                                    equal to the space at the start and end of the row track.
+                                </p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="a_g_t_ex_6">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2</div>
+                                    <div class="grid-elem">3</div>
+                                    <div class="grid-elem">4</div>
+                                    <div class="grid-elem">5</div>
+                                    <div class="grid-elem">6</div>
+                                    <div class="grid-elem">7</div>
+                                    <div class="grid-elem">8</div>
+                                    <div class="grid-elem">9</div>
+                                    <div class="grid-elem">10</div>
+                                    <div class="grid-elem">11</div>
+                                    <div class="grid-elem">12</div>
+                                    <div class="grid-elem">13</div>
+                                    <div class="grid-elem">14</div>
+                                    <div class="grid-elem">15</div>
+                                    <div class="grid-elem">16</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">align-content: start; </code>
+                                <p>
+                                    <code class="txt-highlight">start</code> aligns rows at the start of the
+                                    column axis. It is the default value.
+                                </p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="a_g_t_ex_7">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2</div>
+                                    <div class="grid-elem">3</div>
+                                    <div class="grid-elem">4</div>
+                                    <div class="grid-elem">5</div>
+                                    <div class="grid-elem">6</div>
+                                    <div class="grid-elem">7</div>
+                                    <div class="grid-elem">8</div>
+                                    <div class="grid-elem">9</div>
+                                    <div class="grid-elem">10</div>
+                                    <div class="grid-elem">11</div>
+                                    <div class="grid-elem">12</div>
+                                    <div class="grid-elem">13</div>
+                                    <div class="grid-elem">14</div>
+                                    <div class="grid-elem">15</div>
+                                    <div class="grid-elem">16</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">align-content: end; </code>
+                                <p>Rows are aligned at the end of the column axis.</p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="a_g_t_ex_8">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2</div>
+                                    <div class="grid-elem">3</div>
+                                    <div class="grid-elem">4</div>
+                                    <div class="grid-elem">5</div>
+                                    <div class="grid-elem">6</div>
+                                    <div class="grid-elem">7</div>
+                                    <div class="grid-elem">8</div>
+                                    <div class="grid-elem">9</div>
+                                    <div class="grid-elem">10</div>
+                                    <div class="grid-elem">11</div>
+                                    <div class="grid-elem">12</div>
+                                    <div class="grid-elem">13</div>
+                                    <div class="grid-elem">14</div>
+                                    <div class="grid-elem">15</div>
+                                    <div class="grid-elem">16</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">align-content: center; </code>
+                                <p>Rows are aligned at the center of the column axis.</p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="a_g_t_ex_9">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2</div>
+                                    <div class="grid-elem">3</div>
+                                    <div class="grid-elem">4</div>
+                                    <div class="grid-elem">5</div>
+                                    <div class="grid-elem">6</div>
+                                    <div class="grid-elem">7</div>
+                                    <div class="grid-elem">8</div>
+                                    <div class="grid-elem">9</div>
+                                    <div class="grid-elem">10</div>
+                                    <div class="grid-elem">11</div>
+                                    <div class="grid-elem">12</div>
+                                    <div class="grid-elem">13</div>
+                                    <div class="grid-elem">14</div>
+                                    <div class="grid-elem">15</div>
+                                    <div class="grid-elem">16</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">align-content: space-around; </code>
+                                <p>
+                                    The remaining space of the grid container is distributed and applied to
+                                    the start and end of each row track.
+                                </p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="a_g_t_ex_10">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2</div>
+                                    <div class="grid-elem">3</div>
+                                    <div class="grid-elem">4</div>
+                                    <div class="grid-elem">5</div>
+                                    <div class="grid-elem">6</div>
+                                    <div class="grid-elem">7</div>
+                                    <div class="grid-elem">8</div>
+                                    <div class="grid-elem">9</div>
+                                    <div class="grid-elem">10</div>
+                                    <div class="grid-elem">11</div>
+                                    <div class="grid-elem">12</div>
+                                    <div class="grid-elem">13</div>
+                                    <div class="grid-elem">14</div>
+                                    <div class="grid-elem">15</div>
+                                    <div class="grid-elem">16</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">align-content: space-between; </code>
+                                <p>The remaining space is distributed between the row tracks.</p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="a_g_t_ex_11">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2</div>
+                                    <div class="grid-elem">3</div>
+                                    <div class="grid-elem">4</div>
+                                    <div class="grid-elem">5</div>
+                                    <div class="grid-elem">6</div>
+                                    <div class="grid-elem">7</div>
+                                    <div class="grid-elem">8</div>
+                                    <div class="grid-elem">9</div>
+                                    <div class="grid-elem">10</div>
+                                    <div class="grid-elem">11</div>
+                                    <div class="grid-elem">12</div>
+                                    <div class="grid-elem">13</div>
+                                    <div class="grid-elem">14</div>
+                                    <div class="grid-elem">15</div>
+                                    <div class="grid-elem">16</div>
+                                </div>
+                            </aside>
+                        </div>
+
+                        <div class="code-exemple">
+                            <section class="code">
+                                <code class="code-highlight">align-content: space-evenly; </code>
+                                <p>
+                                    The remaining space is distributed where the space between the rows are
+                                    equal to the space at the start and end of the column track.
+                                </p>
+                            </section>
+                            <aside class="exemple">
+                                <div id="a_g_t_ex_12">
+                                    <div class="grid-elem">1</div>
+                                    <div class="grid-elem">2</div>
+                                    <div class="grid-elem">3</div>
+                                    <div class="grid-elem">4</div>
+                                    <div class="grid-elem">5</div>
+                                    <div class="grid-elem">6</div>
+                                    <div class="grid-elem">7</div>
+                                    <div class="grid-elem">8</div>
+                                    <div class="grid-elem">9</div>
+                                    <div class="grid-elem">10</div>
+                                    <div class="grid-elem">11</div>
+                                    <div class="grid-elem">12</div>
+                                    <div class="grid-elem">13</div>
+                                    <div class="grid-elem">14</div>
+                                    <div class="grid-elem">15</div>
+                                    <div class="grid-elem">16</div>
+                                </div>
+                            </aside>
+                        </div>
+                    </section>
+                    <section id="Reference" class="main-section">
+                        <div class="main-section-header">
+                            <header>Reference</header>
+                            <p>
+                                All the documentation in this page is taken from
+                                <a
+                                    href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Grid_Layout"
+                                    target="_blank"
+                                    >MDN</a
+                                >
+                                and and highly inspired by
+                                <a href="https://learncssgrid.com/" target="_blank">Learn CSS GRID</a>
+                            </p>
+                        </div>
+                    </section>
+                </div>
+            </main>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>

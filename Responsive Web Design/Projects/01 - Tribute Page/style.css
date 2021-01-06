@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+html {
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+body {
+    background-color: #eeeeee;
+}
+
+.wrap {
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+header {
+    text-align: center;
+}
+
+header #title {
+    font-size: 3rem;
+    letter-spacing: 0.2rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-top: 1rem;
+}
+
+header p {
+    margin-top: 0.7rem;
+    font-size: 0.9rem;
+    font-weight: 300;
+}
+
+#section-img {
+    background-color: white;
+    padding: 3rem 0;
+    margin: 2rem 0;
+}
+
+#section-img img {
+    max-width: 95vw;
+    margin: 0 auto;
+}
+
+#section-img #img-caption {
+    margin-top: 1rem;
+    text-align: center;
+}
+
+#tribute-info {
+    max-width: 650px;
+}
+
+#tribute-info h2 {
+    margin-bottom: 1rem;
+    text-align: center;
+}
+
+#tribute-info ul {
+    padding: 1rem;
+}
+
+#tribute-info li {
+    margin-bottom: 0.5rem;
+}
+
+#tribute-info .date {
+    font-weight: 700;
+}
+
+footer {
+    background-color: white;
+}
+
+footer p {
+    text-align: center;
+    margin: 1rem 0;
+}
+
+footer a,
+footer a:active,
+footer a:visited,
+footer a:focus {
+    text-decoration: none;
+    color: blue;
+}
+
+footer a:hover,
+footer a:active:hover,
+footer a:visited:hover,
+footer a:focus:hover {
+    color: #5f8d30;
+    text-decoration: underline;
+}

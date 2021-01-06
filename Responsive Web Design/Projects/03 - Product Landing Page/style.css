@@ -1,0 +1,255 @@
+/* MEDIA QUERY */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+html {
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    scroll-behavior: smooth;
+}
+
+.wrap {
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0.5rem;
+}
+
+header {
+    background-color: #b4b4b4;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-content img {
+    width: 3rem;
+    height: auto;
+}
+
+.header-content nav {
+    width: 20rem;
+}
+
+.header-content ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+.header-content a {
+    text-decoration: none;
+    color: black;
+    display: block;
+    text-align: right;
+    margin: 0.5rem 1rem;
+    transition: color 0.25s ease;
+}
+
+.header-content a:hover {
+    color: #b38531;
+}
+
+@media screen and (min-width: 580px) {
+    .header-content ul {
+        flex-direction: row;
+    }
+}
+
+/* FEATURES */
+#features {
+    margin-top: 8rem;
+    margin-bottom: 2rem;
+}
+
+#features .info-card {
+    text-align: center;
+    padding: 0.2rem;
+}
+
+#features .info-card i {
+    color: #d3992d;
+    font-size: 3rem;
+    margin-top: 3.5rem;
+}
+
+#features .info-card h2 {
+    margin: 0.5rem 0;
+}
+
+/* DESC */
+#desc input {
+    margin: 0.8rem auto 0;
+}
+
+#desc #video {
+    width: 100%;
+    max-width: 450px;
+    height: 260px;
+    margin: 2rem auto 0;
+    display: block;
+}
+
+/* MERCH */
+.merch-card {
+    border: 1px solid black;
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.merch-card h3 {
+    background-color: #b4b4b4;
+    padding: 1rem 0;
+}
+
+.merch-card .price {
+    font-weight: bold;
+    margin: 0.5rem;
+    position: relative;
+    display: inline-block;
+}
+
+.merch-card .price.solde::before {
+    content: ' ';
+    width: 40%;
+    border: 1px solid red;
+    border-radius: 10px;
+    position: absolute;
+    top: 0.7rem;
+    left: 0.3rem;
+    transform: rotate(-35deg);
+}
+
+.merch-card .price.solde::after {
+    content: '$19.99';
+    position: absolute;
+    top: 1.5rem;
+    left: -3rem;
+    color: red;
+    font-size: 1.3rem;
+}
+
+.merch-card a {
+    display: inline-block;
+    padding: 0.2rem 0.5rem;
+    background-color: #6dbe48;
+    color: black;
+    text-decoration: none;
+    margin: 1rem 0;
+    border-radius: 0.4rem;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 580px) {
+    /* FEATURES */
+    #features {
+        margin-top: 2rem;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    #features .info-card {
+        width: 50%;
+        padding: 0 3rem;
+    }
+    /* DESC */
+    #desc {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    #desc form {
+        width: 50%;
+    }
+    /* MERCH */
+    #pricing {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    #pricing .merch-card {
+        width: 100%;
+        margin: 3rem 1rem;
+    }
+}
+
+footer {
+    background-color: #b4b4b4;
+}
+
+.footer-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-content p,
+.footer-content a {
+    font-size: 0.9rem;
+    opacity: 0.85;
+    text-align: center;
+}
+
+.footer-content a,
+.footer-content a:visited,
+.footer-content a:checked {
+    text-decoration: none;
+    color: black;
+    transition: all 0.3s ease-in;
+    padding: 0.7rem;
+}
+
+.footer-content a:hover {
+    color: #3737dd;
+}
+
+form {
+    margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+}
+
+form input {
+    border: none;
+    padding: 0.4rem 0.3rem;
+    box-shadow: 1px 1px 3px black;
+    border-radius: 0.4rem;
+    width: 10rem;
+}
+
+form input[type='submit'] {
+    background: #e0e02e;
+    border: 1px solid #e0e02e;
+    width: max-content;
+    margin: 0.8rem auto 0;
+    padding: 0.3rem 0.4rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+@media screen and (min-width: 580px) {
+    .footer-content {
+        flex-direction: row;
+        margin: 0 3rem;
+    }
+}
