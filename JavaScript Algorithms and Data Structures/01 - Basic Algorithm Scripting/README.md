@@ -573,4 +573,3 @@ function chunkArrayInGroups(arr, size) {
 
 </p>
 </details>
-```
